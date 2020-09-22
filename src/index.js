@@ -1,10 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './app';
+
+import 'normalize.css';
+
+import GlobalStyle from './styles/global';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <>
+      <App />
+      <GlobalStyle />
+    </>,
   document.getElementById('root')
 );
