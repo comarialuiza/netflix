@@ -4,12 +4,15 @@ This application is a Netflix clone made following Karl Hadwen's tutorial on [yo
 
 ## Technologies
 - React.js;
-- Styled Components;
+- Styled Components Macro;
 - React Hooks;
+- Context API;
 - Firebase (Firestore & Auth);
 - React Testing Library;
 - Normalize.css;
 - Fuse.js.
 
 ## Design Pattern
-- Compound components.
+- Compound components;
+- Eslint;
+- Prettier.
