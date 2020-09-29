@@ -4,8 +4,9 @@ This application is a Netflix clone made following Karl Hadwen's tutorial on [yo
 
 ## Technologies
 - React.js;
-- Styled Components Macro;
+- React-router-dom;
 - React Hooks;
+- Styled Components Macro;
 - Context API;
 - Firebase (Firestore & Auth);
 - React Testing Library;
