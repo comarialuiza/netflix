@@ -18,10 +18,19 @@ export const Container = styled.div`
     }
 `;
 
+export const Group = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
 export const Background = styled.div`
     display: flex;
     flex-direction: column;
     background: url(${({ src }) => src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg'}) top left / cover no-repeat;
+
+    @media (max-width: 1100px) {
+        ${({ dontShowOnSmallViewport }) => dontShowOnSmallViewport && `background: none;`}
+    }
 `;
 
 export const Logo = styled.img`
@@ -52,5 +61,110 @@ export const ButtonLink = styled(ReactRouterLink)`
 
     &&:hover {
         background-color: #f40612;
+    }
+`;
+
+export const Feature = styled(Container)`
+    padding: 150px 0 500px 0;
+    flex-direction: column;
+    align-items: normal;
+    width: 50%;
+
+    @media (max-width: 1100px) {
+        display: none;
+    }
+`;
+
+export const Text = styled.h2`
+    color: #fff;
+    font-size: 50px;
+    line-height: normal;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+`;
+
+export const TextSmall = styled.p`
+    color: #fff;
+    font-size: 22px;
+    line-height: normal;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+`;
+
+export const TextLink = styled.button`
+    background-color: transparent;
+    outline: 0;
+    border: 0;
+
+    color: #fff;
+    cursor: pointer;
+    font-weight: ${({ active }) => ( active === 'true' ? '700' : 'normal' )};
+    transition: all .2s;
+
+    &:hover {
+        font-weight: bold;
+    }
+    
+    &:not(:last-of-type) {
+        margin-right: 30px;
+    }
+`;
+
+export const Picture = styled.button`
+    background: url(${({ src }) => src});
+    background-size: contain;
+    border: 0;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+`;
+
+
+export const Dropdown = styled.div`
+    display: none;
+    background-color: #000;
+    position: absolute;
+    padding: 10px;
+    width: 100px;
+    top: 32px;
+    right: 0;
+
+    ${Group} {
+        margin-bottom: 10px;
+
+        ${TextLink}, ${Picture} {
+            cursor: default;
+        }
+    }
+
+    ${Group}:last-of-type {
+        margin-bottom: 0;
+
+        ${TextLink} {
+            cursor: pointer;
+        }
+    }
+
+    button:first-of-type {
+        margin-right: 10px;
+    }
+
+    button:last-of-type {
+        font-size: 12px;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+    }
+`;
+
+export const Profile = styled.div`
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    position: relative;
+
+    &:hover > ${Dropdown} {
+        display: flex;
+        flex-direction: column;
     }
 `;
