@@ -8,9 +8,11 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 
 import { IsUserRedirect, ProtectedRoute } from './helpers/routes';
+import useAuthListener from './hooks/use-auth-listener';
 
 function App() {
-  const user = {};
+  const { user } = useAuthListener();
+  console.log(user);
 
   return (
     <Router>
