@@ -5,6 +5,7 @@ import { FirebaseContext } from './../../context/firebase';
 
 import Loading from './../../components/Loading';
 import Header from './../../components/Header';
+import Card from './../../components/Card';
 
 import * as ROUTES from './../../constants/routes';
 import logo from './../../assets/logo.svg';
@@ -12,6 +13,9 @@ import logo from './../../assets/logo.svg';
 // import { Container } from './styles';
 
 function BrowseContainer({ slides }) {
+    const [ category, setCategory ] = useState('series');
+    const [ slideRows, setSlideRows ] = useState([]);
+
     const [ profile, setProfile ] = useState({});
     const [ loading, setLoading ] = useState(true);
 
@@ -28,6 +32,10 @@ function BrowseContainer({ slides }) {
         }, 3000);
     }, [ profile.displayName ]);
 
+    useEffect(() => {
+        setSlideRows(slides[category]);
+    }, [ slides, category ]);
+
     return (
         <>
             { profile.displayName ? (
@@ -37,8 +45,18 @@ function BrowseContainer({ slides }) {
                         <Header.Frame>
                             <Header.Group>
                                 <Header.Logo to={ ROUTES.HOME } src={ logo } alt="Netflix" />
-                                <Header.TextLink>Films</Header.TextLink>
-                                <Header.TextLink>Series</Header.TextLink>
+                                <Header.TextLink 
+                                    active={ category === 'films' ? 'true' : 'false' } 
+                                    onClick={ () => { setCategory('films')} }
+                                >
+                                    Films
+                                </Header.TextLink>
+                                <Header.TextLink 
+                                    active={ category === 'series' ? 'true' : 'false' }
+                                    onClick={ () => { setCategory('series')} }
+                                >
+                                    Series
+                                </Header.TextLink>
                             </Header.Group>
 
                             <Header.Group>
