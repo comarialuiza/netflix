@@ -2,6 +2,8 @@
 
 This application is a Netflix clone made following Karl Hadwen's tutorial on [youtube](https://www.youtube.com/watch?v=x_EEwGe-a9o&ab_channel=KarlHadwen). 
 
+The final project can be seen [here]().
+
 ## Technologies & Patterns
 - React.js;
 - React-router-dom;
@@ -15,4 +17,5 @@ This application is a Netflix clone made following Karl Hadwen's tutorial on [yo
 - Local Storage;
 - Normalize.css;
 - Fuse.js;
-- Batched state updates.
+- Batched state updates;
+- Netlify.
