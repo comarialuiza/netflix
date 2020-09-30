@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Link as ReactRouterLink } from 'react-router-dom';
 
-import { Container, Background, Logo, ButtonLink, Feature, Text, TextSmall, TextLink, Group, Picture, Profile, Dropdown } from './styles';
+import { Container, Background, Logo, ButtonLink, Feature, Text, TextSmall, TextLink, Group, Picture, Profile, Dropdown, Search, SearchIcon, SearchImage, SearchInput } from './styles';
 
 function Header({ bg = true, children, ...restProps }) {
     return bg ? (
@@ -61,4 +61,22 @@ Header.Profile = function HeaderProfile({ children, ...restProps }) {
 
 Header.Dropdown = function HeaderDropdown({ children, ...restProps }) {
     return <Dropdown { ...restProps }> { children } </Dropdown>
+}
+
+Header.Search = function HeaderSearch({ searchTerm, setSearchTerm, ...restProps }) {
+    const [ searchActive, setSearchActive ] = useState(false);
+
+    return (
+        <Search { ...restProps }>
+            <SearchIcon onClick={ () => setSearchActive(searchActive => !searchActive) }>
+                <SearchImage src="/images/icons/search.png" alt="Search" />
+            </SearchIcon>
+            <SearchInput 
+                value={ searchTerm }
+                onChange={({ target }) => setSearchTerm(target.value)}
+                placeholder="Search films and series"
+                active={ searchActive }
+            />
+        </Search>
+    )
 }

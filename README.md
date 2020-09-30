@@ -14,4 +14,5 @@ This application is a Netflix clone made following Karl Hadwen's tutorial on [yo
 - React Testing Library;
 - Local Storage;
 - Normalize.css;
-- Fuse.js.
+- Fuse.js;
+- Batched state updates.

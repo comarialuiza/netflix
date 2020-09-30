@@ -168,3 +168,42 @@ export const Profile = styled.div`
         flex-direction: column;
     }
 `;
+
+export const Search = styled.div`
+    display: flex;
+    align-items: center;
+
+    svg {
+        cursor: pointer;
+        color: #fff;
+    }
+
+    @media (max-width: 700px) {
+        display: none;
+    }
+`;
+
+export const SearchIcon = styled.button`
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
+`;
+
+export const SearchImage = styled.img`
+    display: block;
+    filter: brightness(0) invert(1);
+    width: 16px;
+`;
+
+export const SearchInput = styled.input`
+    background-color: #44444459;
+    color: #fff;
+    border: 1px solid #fff;
+    transition: width .5s;
+    height: 30px;
+    font-size: 14px;
+    margin-left: ${({ active }) => active === true ? '10px' : '0'};
+    padding: ${({ active }) => active === true ? '0 10px' : '0'};
+    opacity: ${({ active }) => active === true ? '1' : '0'};
+    width: ${({ active }) => active === true ? '200px' : '0'};
+`;
