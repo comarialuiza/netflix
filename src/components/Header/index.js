@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Link as ReactRouterLink } from 'react-router-dom';
 
-import { Container, Background, Logo, ButtonLink, Feature, Text, TextSmall, TextLink, Group, Picture, Profile, Dropdown, Search, SearchIcon, SearchImage, SearchInput } from './styles';
+import { Container, Background, Logo, ButtonLink, Feature, Text, TextSmall, TextLink, Group, Picture, Profile, Dropdown, Search, SearchIcon, SearchImage, SearchInput, PlayButton } from './styles';
 
 function Header({ bg = true, children, ...restProps }) {
     return bg ? (
@@ -79,4 +79,8 @@ Header.Search = function HeaderSearch({ searchTerm, setSearchTerm, ...restProps 
             />
         </Search>
     )
+}
+
+Header.PlayButton = function HeaderPlayButton({ children, ...restProps }) {
+    return <PlayButton { ...restProps }> { children } </PlayButton>
 }
