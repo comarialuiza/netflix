@@ -4,7 +4,7 @@ import 'firebase/auth';
 import { seedDatabase } from '../seed'; 
 
 const config = {
-    apiKey: "AIzaSyA6UJkCruf-PexkeDpZvd_0xjAIWMPfplQ",
+    apiKey: process.env.REACT_APP_FIREBASE_TOKEN,
     authDomain: "netflix-malu.firebaseapp.com",
     databaseURL: "https://netflix-malu.firebaseio.com",
     projectId: "netflix-malu",
